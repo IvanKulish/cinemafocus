@@ -2,53 +2,81 @@
 Theme Name: Cinema Focus
 Author: I'm author ! You know ?
 */
+
 /* Основные стили */
-main{
-    background-color: #1D1D1D;
-    
+
+
+body {  /* Задаем главный стиль абсолютно всей странице внезависимости от последующих изменений */
+    font-family: 'Montserrat', sans-serif; /* Название шрифта (sans-serif - на случай если основной шрифт не подгрузиться) */
+    margin: 0; /* Внешние отступы */
+    padding: 0; /* Внутренние отступы */
+    background-color: #1D1D1D; /* Цвет фона всей страницы */
+    max-width: 100%; /* Артрибут, который позволяет делать задний фон при любом размере (заливка всей видимой области проще говоря) */
+    overflow-x: hidden; /* Отключили горизонтальный скрол на всей странице (Н@хуй не надо и такое редко кто использует) */
 }
 
-body {
+/* Основные параметры и стили ШАПКИ САЙТА */
+
+header { /* Основной стиль "шапки сайта" */
     font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #1D1D1D;
+    background-color: #1D1D1D; /* задний фон его */
+    display: flex; /* параметр отображения элементов (flex - весь контент будет распаложен в правую сторону) */
+    width: 100%; /* Опять же будет собой заполнять всю ширину сайта внезависимости размера */
+    height: 92px; /* Высота шапки*/
+    padding: o; /* Внутренние отступы (нахуй не надо) */
+    justify-content: center; /* Параметр центрирования контента (слева, справа, по центру. В нашем случае надо по центру) */
+    align-items: center; /* Та же история (чтоб наверняка.) */
+    gap: 38px; /* отступы между контентом внутри шапки (лого    -отступ 38-     навигация     -отступ 38-     инпут поиска     -отступ 38-     кнопка) */
+    flex-shrink: 0; /* определяет коэффициент сжатия flex-элемента. Значение 0 указывает, что элемент не будет уменьшаться */
 }
 
-
-header {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #1D1D1D;
-    display: flex;
-    width: 100%;
-    height: 92px;
-    padding: o;
-    justify-content: center;
-    align-items: center;
-    gap: 119px;
-    flex-shrink: 0;
-}
-
-.logo img {
+.logo img {  /* Стиль логотипа */
     width: 180px;
     height: 63px;
 }
 
-.menu ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.menu ul { /* Стили навигации */
+    display: flex; /* Все пункты будут расположены горизонтально */
+    list-style: none;  /* Какие то маркеры списка (сам не знаю) */
+    padding: 0; /* Внутренний отступ всего списка */
+    margin: 0; /* Внешний отступ всего списка */
 }
 
 .menu ul li {
-    margin-right: 24px;
+    margin-right: 24px; /* Внешний отступ каждого элемента списка */
 }
 
-.menu ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
+.menu ul li a:hover {
+    color: #ff0066; /* Меняет цвет текста при наведении */
+}
+
+.menu ul li a { 
+    color: #fff; /* Цвет текста */
+    text-decoration: none; 
+    font-size: 16px; /* Размер шрифта */
+}
+
+.sign-up {  /* Кнопочка и ее стили */
+    width: 150px;
+    height: 38px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F40049; /* Цвет фона */
+    color: #ffffff; /* Цвет текста */
+    border: none; /* Убираем границу */
+    border-radius: 42px;
+    text-align: center;
+    padding: 10px; /* Отступы внутри кнопки */
+    font-size: 14px; /* Размер шрифта */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.3s ease; /* Плавный переход цвета */
+    color: #FFF;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.sign-up:hover { /* Эффект при наведении */
+    background-color: #96002D; /* Цвет фона при наведении */
 }
 
 .container {
@@ -56,27 +84,9 @@ header {
     justify-content: flex-start; /* Сдвигаем элементы влево */
     padding: 20px; /* Добавляем отступы вокруг контейнера */
 }
+/* Конец */
 
-.custom-input {
-    width: 300px; /* Устанавливаем ширину для родителя */
-    margin-left: 0; /* Можешь изменить на нужный отступ */
-}
-
-.custom-input input {
-    font-family: 'Montserrat', sans-serif; /* Шрифт Montserrat */
-    font-size: 12px; /* Размер шрифта */
-    padding: 9px 9px; /* Отступы: сверху и снизу 21px, слева и справа 9px */
-    width: 214px; /* Инпут занимает всю ширину родителя */
-    border: 1px solid #ccc; /* Цвет рамки */
-    border-radius: 16px; /* Закругление углов */
-    background-color: #fff; /* Белая заливка */
-}
-
-.custom-input input::placeholder {
-    color: #000; /* Цвет текста плейсхолдера */
-    opacity: 1; /* Делаем плейсхолдер видимым */
-}
-
+/* Основные параметры и стили ГЛАВНОГО БЛОКА (АНОНСЫ) */
 
 .hero-main {
     background-size: cover; /* Чтобы изображение занимало весь блок */
@@ -89,7 +99,24 @@ header {
     align-items: center; /* Центрирование по горизонтали */
 }
 
-.hero-content {
+.custom-input { /* Инпут поиск */
+    font-family: 'Montserrat', sans-serif;
+    width: 214px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #D9D9D9;
+    padding-left: 24px;
+    border-radius: 42px;
+}
+
+.custom-input input::placeholder { 
+    color: #000; /* Цвет текста плейсхолдера */
+    opacity: 1; /* Делаем плейсхолдер видимым */
+}
+
+
+.hero-content { /* Основной блок с контентом */
     padding-left: 98px;
     display: flex;
     flex-direction: column;
@@ -99,19 +126,19 @@ header {
     width: 500px;
 }
 
-.hero-content h1 {
+.hero-content h1 { /* Параметры заголовка в этом блоке */
     font-family: 'Montserrat', sans-serif;
     font-size: 48px;
     margin: 0;
     padding: 0;
 }
 
-.hero-content p {
+.hero-content p { /* Параметры подзаголовка в этом блоке */
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
 }
 
-.rating {
+.rating { /* Параметры звездочек */
     align-items: start;
     color: #ffcc00; /* Цвет звезд (можно изменить на любой другой) */
     font-size: 30px; /* Размер звезд */
@@ -120,7 +147,7 @@ header {
     padding: 0;
 }
 
-.custom-button {
+.custom-button { /* Параметры кнопочки главной */
     width: 288px;
     height: 45px;
     font-weight: 700;
@@ -135,17 +162,20 @@ header {
     transition: background-color 0.3s ease; /* Плавный переход цвета */
 }
 
-.custom-button:hover {
+.custom-button:hover { /* Параметры стиля при наведении на кнопку */
     background-color: #96002D; /* Цвет фона при наведении */
 }
+/* Конец */
 
+
+/* Основные параметры и стили СОРТИРОВКИ */
 .sorting {
-    padding-top: 120px;
-    padding-left: 96px;
+    padding-top: 120px; /* Отступ сверху */
+    padding-left: 96px; /* Отступ слева */
 
 }
 
-.sorting h1 {
+.sorting h1 { /* Стиль заголовка */
     font-family: 'Montserrat', sans-serif;
     font-size: 48px;
     margin-bottom: 32px;
@@ -153,25 +183,22 @@ header {
     color: #fff;
 }
 
-.sorting-block {
-    display: flex;
-    width: 107px;
-    height: 32px;
-    padding: 10px 16px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 16px;
+.sorting-block { /* Стиль блока в котором находятся эти кнопки (хз как обозвать) */
+    display: flex; /* Отображение элементов по горизонтали */
+    padding: 10px 16px; /* Отступы Верх/Низ и Лево/право */
+    justify-content: center; 
+    align-items: center;  /* Центрирование */
+    gap: 10px; /* Отступы между кнопками этими */
 }
 
-.sort-select {
+.sort-select { /* Выпадающий список */
     padding: 10px; /* Отступ внутри выпадающего списка */
     margin-right: 10px; /* Отступ справа от выпадающего списка */
     border: 1px solid #F40049; /* Граница */
     border-radius: 5px; /* Скругление углов */
 }
 
-.sort-button {
+.sort-button { /* Стиль самой кнопки */
     display: flex;
     width: 107px;
     height: 32px;
@@ -182,34 +209,34 @@ header {
     border-radius: 16px;
 }
 
-.filter-container {
+.filter-container { /* Стиль контейнера */
     display: flex;
     gap: 10px;
     padding: 0;
 }
 
-.dropdown {
+.dropdown { /* Выпадающий список */
     position: relative;
 
 }
 
-.dropdown-button {
+.dropdown-button { /* Кнопочки внутри списка */
     display: flex;
-    background-color: #e0e0e0;
-    border: none;
-    height: 38px;
-    padding: 16px 10px 16px 10px;
-    border-radius: 24px;
-    cursor: pointer;
+    background-color: #e0e0e0; 
+    border: none; /* Отсутствие контура (обводки) */
+    height: 38px; /* Высота */
+    border-radius: 24px; /* Внутренние отступы по всем сторонам */
+    cursor: pointer; /* Свойство курсора при наведении на чекбокс */
     padding: 10px 16px;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    color: #000;
-    font-family: Montserrat;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
+    gap: 10px; 
+
+    color: #000; /* Стиль текста */
+    font-family: Montserrat; /* Название шрифта */
+    font-size: 16px; /* Размер шрифта */
+    font-style: normal; 
+    font-weight: 500; /* Степень жирности (чем меньше, тем тоньше) */
     line-height: normal;
 }
 
@@ -218,9 +245,9 @@ header {
     position: absolute;
     background-color: #ffffff;
     color: #000;
-    min-width: 160px;
+    min-width: 160px; /* Минимальная ширина */
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px;
+    padding: 12px; 
     border-radius: 8px;
     z-index: 1;
 }
@@ -235,8 +262,8 @@ header {
     display: block;
 }
 
-.dropdown-content input[type="checkbox"] {
-    margin-right: 10px;
+.dropdown-content input[type="checkbox"] { /* Стиль чекбокса */
+    margin-right: 10px; 
     color: #96002D;
 }
 
@@ -276,6 +303,22 @@ header {
     width: 100%;
 }
 
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.rating-info {
+    text-align: right;
+    color: #ffcc00; /* Цвет звезд (можно изменить на любой другой) */
+    font-size: 24px; /* Размер звезд */
+    padding-bottom: 24px;
+    padding: 0;
+}
+
 .second-text {
     margin: 0;
     padding-bottom: 0px;
@@ -303,7 +346,7 @@ header {
     padding-bottom: 0px;
     color: #D9D9D9;
     font-family: Montserrat;
-    font-size: 24px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -361,7 +404,7 @@ header {
     background-color: #96002D; /* Цвет фона при наведении */
 }
 
-.pagination {
+.pagination { /* Навигация по перемещению страниц */
     display: flex;
     justify-content: left;
     align-items: left;
@@ -369,7 +412,7 @@ header {
     padding: 20px;
 }
 
-.pagination button {
+.pagination button { /* Навигация по перемещению страниц (кнопка) */
     background: none;
     border: none;
     color: #ffffff;
@@ -383,15 +426,15 @@ header {
     text-decoration: underline;
 }
 
-.pagination button:hover {
-    color: #ff0066;
+.pagination button:hover { /* Эффект наведения */
+    color: #F40049;
 }
 
-.soon-cinema {
+.soon-cinema { /* Общий отступ блоку  */
     padding-left: 96px;
 }
 
-.soon-cinema h1 {
+.soon-cinema h1 { /* Заголовок блока  */
     font-family: 'Montserrat', sans-serif;
     font-size: 48px;
     margin-bottom: 32px;
@@ -399,7 +442,7 @@ header {
     color: #fff;
 }
 
-.soon-section {
+.soon-section { /* Свойства секции самой  */
     padding-left: 0px;
     padding-top: 20px;
     display: flex;
@@ -407,31 +450,39 @@ header {
     gap: 20px;
 }
 
-.read-button {
-    background-color: #1D1D1D;
-    margin-top: 16px;
+.read-button { /* Стиль кнопки  */
+    border: 2px solid #F40049;
+    background-color: transparent;
+    color: #F40049;
     width: 182px;
-    height: 35px;
-    font-weight: 700;
+    padding: 10px 10px;
+    margin-top: 12px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
     font-family: 'Montserrat', sans-serif;
-    border-radius: 42px;
-    border: 1px solid #F40049;
-    color: #F40049; /* Цвет текста */
-    padding: 10px 10px; /* Отступы внутри кнопки */
-    font-size: 12px; /* Размер шрифта */
-    cursor: pointer; /* Указатель при наведении */
-
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
-.news {
-    padding-left: 96px;
+.read-button:hover { /* Эффект наведения  */
+    border: 2px solid #93002C;
+    color: #93002C;
 }
 
-.cards {
+.news { /* Отступ всего блока "Новости"  */
+    padding-left: 96px; 
+}
+
+.cards { /* Общие свойсвтва секции карточек  */
     display: flex;
+    width: 1248px;
 }
 
-.news h1 {
+.news h1 { /* Заголовок блока  */
     font-family: 'Montserrat', sans-serif;
     font-size: 48px;
     margin-bottom: 32px;
@@ -439,10 +490,11 @@ header {
     color: #fff;
 }
 
-.news-card {
+.news-card { /* Стиль карточки  */
     width: 608px;
     display: flex;
     padding: 24px;
+    margin-right: 32px;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
@@ -452,7 +504,7 @@ header {
     background: #2D2D2D;
 }
 
-.news-card h4 {
+.news-card h4 { /* Дата написания новости (стиль этого текста) */
     align-self: stretch;
     color: #D9D9D9;
     font-family: Montserrat;
@@ -464,7 +516,7 @@ header {
     margin-bottom: 8px;
 }
 
-.news-card h2 {
+.news-card h2 { /* Заголовок новости  */
     color: #D9D9D9;
     flex: 1 0 0;
     font-family: Montserrat;
@@ -475,12 +527,146 @@ header {
     margin-bottom: 0;
 }
 
-.news-card p {
-align-self: stretch;
-color: #D9D9D9;
-font-family: Montserrat;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+.news-card p { /* Описание новости  */
+    align-self: stretch;
+    color: #D9D9D9;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.form {  /* Стиль блока "Подписка на рассылку"  */
+    margin-top: 96px;
+    padding-left: 96px;
+    background-size: cover; /* Чтобы изображение занимало весь блок */
+    background-position: center; /* Центрируем изображение */
+    height: 640px; /* Высота блока */
+}
+
+.form-text h2 { /* Заголовок блока  */
+    margin: 0px;
+    padding-top: 96px;
+    width: 500px;
+    color: #D9D9D9;
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-bottom: 0;
+}
+
+.form-text p { /* Описание */
+    padding-top: 0;
+    width: 438px;
+    color: #D9D9D9;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.input-container { /* Группа инпутов и их свойства  */
+    display: flex;
+    flex-direction: column;
+    width: 390px;
+    padding-left: 32px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 2px solid #ffffff;
+    border-radius: 30px;
+    color: #ffffff;  
+    font-size: 16px;
+    outline: none;
+    background-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input::placeholder { 
+    opacity: 0.7; /* Немного прозрачный для эффекта */
+}
+
+input:focus {
+    border-color: #F40049; /* Меняет цвет рамки на розовый при фокусе */
+}
+
+input:-webkit-autofill { /* Это при условии автоподставки из подсказок браузера будет немного затемняться фон */
+    -webkit-box-shadow: 0 0 0 30px #1e1e1e inset !important; /* Убираем белый фон и тень */
+    -webkit-text-fill-color: #ffffff !important; /* Цвет текста */
+    transition: background-color 5000s ease-in-out 0s; /* Убираем фон полностью */
+}
+
+footer { /* Стиль футера  */
+    height: 150px;
+    background-color: #F40049;
+    padding: 96px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-left { /* Левая часть футера  */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-left .logo { /* размеры лого  */
+    width: 180px;
+    height: auto;
+}
+
+.footer-social { /* Группа иконок с соц сетями (отступы и формат отображения) */
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social img {  /* Размер иконок  */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.footer-menu { /* Общий стиль менюшки (отображение каждого списка и их отступы)  */
+    display: flex;
+    gap: 90px;
+}
+
+.footer-menu ul { /* Стиль самого списка */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu ul li { /* Отступ каждого пункта */
+    margin-bottom: 24px;
+}
+
+.footer-menu ul li a { /* Стиль текста  */
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-menu ul li a:hover { /* Эффект при наведении  */
+    text-decoration: underline;
+}
+
+.footer-search { /* Инпут  */
+    align-self: flex-start;
+}
+
+.footer-search input[type="text"] { /* Стиль инпута  */
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    width: 200px;
 }

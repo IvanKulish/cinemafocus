@@ -26,9 +26,6 @@
                 <li><a href="#">Recommended</a></li>
             </ul>
         </nav>
-        <div class="container">
-            <div class="custom-input">
-        <input type="text" placeholder="Search">
-    </div>
-</div>
+        <input class="custom-input" placeholder="Search">
+        <button class="sign-up">Sign up</button>
     </header>
